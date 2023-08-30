@@ -17,3 +17,5 @@ app.use(express.static(path.join(__dirname, 'public/assets')));
 app.use("/sop", sopRoutes);
 
 app.listen(process.env.PORT, () => console.log(`Server running at port: ${process.env.PORT}`));
+
+console.log(process.env.PORT);
