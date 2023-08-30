@@ -23,29 +23,71 @@ const generateSOP = async () => {
     }
 }
 export const sendSop = async (req, res) => {
-    try{        
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.email,
-                pass: process.env.pass,
-            },
-        });
+    try{  
+        const {full_name,
+        age,
+        degree,
+        email_address,
+        Institute_of_higher_level_education,
+        previous_study,
+        work_experience,
+        canada_institute,
+        program_of_study_in_Canada,
+        user_country,
+        future_goals,
+        English_Scores_Listening,
+        English_Scores_Reading,
+        English_Scores_Speaking,
+        English_Scores_writing,
+        first_tution_fee,
+        first_tution_fee_paid,
+        gic,
+        gic_fee}  = await req.body;
+        console.log(req.body);
+        res.status(200).json({
+            full_name,
+            age,
+            degree,
+            email_address,
+            Institute_of_higher_level_education,
+            previous_study,
+            work_experience,
+            canada_institute,
+            program_of_study_in_Canada,
+            user_country,
+            future_goals,
+            English_Scores_Listening,
+            English_Scores_Reading,
+            English_Scores_Speaking,
+            English_Scores_writing,
+            first_tution_fee,
+            first_tution_fee_paid,
+            gic,
+            gic_fee
+        })
+        // const transporter = nodemailer.createTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //         user: process.env.email,
+        //         pass: process.env.pass,
+        //     },
+        // });
 
-        const text = (await generateSOP()).toString();
+        // const text = (await generateSOP()).toString();
 
-        if(text!=='null'){
-        const mailOptions = {
-            from: process.env.email,
-            to: req.body.to,
-            subject: req.body.subject,
-            text,
-            }
-            transporter.sendMail(mailOptions, (error, info) => {
-                if(error) console.log(error);
-            });
-            return res.status(201).json({message: "Sent"}); 
-        } else return res.status(400).json({message: "Couldn't generate SOP"});
+        // if(text!=='null'){
+        // const mailOptions = {
+        //     from: process.env.email,
+        //     to: req.body.to,
+        //     subject: req.body.subject,
+        //     text,
+        //     }
+        //     transporter.sendMail(mailOptions, (error, info) => {
+        //         if(error) console.log(error);
+        //     });
+        //     return res.status(201).json({message: "Sent"}); 
+        // } else return res.status(400).json({message: "Couldn't generate SOP"});
+        
     } catch(err){
         res.status(400).json({message: err.message});
     }
