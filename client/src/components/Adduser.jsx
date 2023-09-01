@@ -46,7 +46,7 @@ const Adduser = () => {
         <Nav />
         <section className='relative bg-form bg-cover bg-center w-full h-full p-20'>
         <div className='rounded-2xl bg-white min-h-screen w-2/3 mx-auto shadow-lg shadow-gray-400/90 p-8'>
-          <h1 className='text-4xl font-palanquin font-bold text-center mb-6'>Generate Your <span className='text-[#007bff]'>SOP</span> Now!</h1>
+          <h1 className='text-4xl font-palanquin font-bold text-center mb-6'>Generate Your <span className='text-[#007bff]'>SOP</span> Now! 🍁</h1>
           <form onSubmit={addUserdetails} className='min-w-full h-screen overflow-auto p-5 flex flex-col'>
             <div className='w-full mb-4'>
               <p className='text-lg h-fit w-fit font-medium mb-2'>Email</p>
