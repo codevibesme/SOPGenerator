@@ -79,7 +79,7 @@ export const sendSop = async (req, res) => {
             Bipasha Roy
             (Address)
             bipasha1413@gmail.com
-            
+
             To
             Visa Officer
             High Commission of Canada
@@ -129,6 +129,7 @@ export const sendSop = async (req, res) => {
 
         // generating pdf
         const doc = new PDFDocument({size: 'A4'});
+
         doc.pipe(fs.createWriteStream(path.join(__dirname, `../public/assets/${full_name.split(' ').join('_')}_sop.pdf`)));
         doc
             .font('Times-Roman')
@@ -136,7 +137,7 @@ export const sendSop = async (req, res) => {
             .text(text);
         doc.save();
         doc.end();
-        console.log(text);
+        
         if(text!=='null'){
 
             // Creating mail options by setting up reciever details and message
@@ -160,7 +161,6 @@ export const sendSop = async (req, res) => {
                 // deleting the created file
                 fs.unlink(path.join(__dirname, `../public/assets/${full_name.split(' ').join('_')}_sop.pdf`), err => {
                     if(err) console.log(err.message);
-                    else console.log("Mail sent and pdf deleted from storage");
                 });
             });
             return res.status(201).json({message: "Sent"}); 
