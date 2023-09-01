@@ -9,12 +9,12 @@ const Hero = () => {
      <div className='w-full flex xl:flex-row flex-col justify-center gap-10 max-container min-h-screen '
   >
     
-        <div className='relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x '>
+        <div className='relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x px-16 '>
         <p className='text-xl font-montserrat text-[#007bff]'>
         Unlock Canadian Immigration Success
         </p>
 
-<h1 className='mt-10 font-sans text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold '>
+<h1 className='mt-10 font-sans text-6xl max-sm:text-[72px] max-sm:leading-[82px] font-bold '>
   <span className='xl:whitespace-nowrap relative z-10 pr-10'>
     Explore Our New 
   </span>

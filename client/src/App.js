@@ -4,7 +4,7 @@ import { BrowserRouter as Router , Routes, Route } from "react-router-dom";
 import Sopgen from "./sections/Sopgen";
 function App() {
   return (
-    <div className="App">
+    <div className="App w-full h-full">
       <Router>
         <Routes>
           <Route path="/" element={<Home />}/>
