@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="w-full min-h-screen bg-hero bg-cover bg-center">
     <Nav />
-     <div className='w-full flex xl:flex-row flex-col justify-center gap-10 max-container min-h-screen '
+     <div className='w-full flex xl:flex-row flex-col justify-center gap-10 max-container min-h-screen'
   >
     
         <div className='relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x px-16 '>

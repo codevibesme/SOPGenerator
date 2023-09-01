@@ -17,11 +17,11 @@ const Button = ({
     return (
       <button
       onClick={()=> genSop()}
-      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none hover:bg-indigo-950 
+      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none hover:scale-105 hover:shadow-md hover:shadow-blue-700/80 
       ${
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
-          : "bg-[#007bff]  text-white border-[#007bff] "
+          : "bg-gradient-to-tr from-blue-400 to-blue-950  text-white border-[#007bff] "
       } rounded-full ${fullWidth && "w-full"}`}
     >
           {label}
