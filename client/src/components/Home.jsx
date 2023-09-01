@@ -6,12 +6,12 @@ import Contact from '../sections/Contact'
 import Footer from '../sections/Footer'
 const Home = () => {
   return (
-    <main className='relative'>
+    <main className='relative w-full h-full '>
         {/* <Nav /> */}
         <section className= " wide:padding-r ">
             <Hero/>
         </section>
-        <section className='sm:px-16 px-8 sm:py-24  bg-[#F4EEEE'>
+        <section className='sm:px-16 px-8 sm:py-24  bg-[#F4EEEE]'>
             <About />
         </section>
         <section className='padding bg-[#C5DFF8] shadow-lg shadow-slate-500'>
