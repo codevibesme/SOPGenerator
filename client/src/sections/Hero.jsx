@@ -14,7 +14,7 @@ const Hero = () => {
         Unlock Canadian Immigration Success
         </p>
 
-<h1 className='mt-10 font-sans text-7xl max-sm:text-[72px] max-sm:leading-[82px] font-bold '>
+<h1 className='mt-10 font-sans text-6xl max-sm:text-[72px] max-sm:leading-[82px] font-bold '>
   <span className='xl:whitespace-nowrap relative z-10 pr-10'>
     Explore Our New 
   </span>

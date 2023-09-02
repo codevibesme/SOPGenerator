@@ -45,7 +45,7 @@ const Footer = () => {
   
         <div className='flex justify-between text-white-400 mt-18 max-sm:flex-col max-sm:items-center max-sm:mt-10'>
           <div className='flex flex-1 justify-center items-center gap-5 font-montserrat cursor-pointer'>
-            <p className="text-stone-50">&copy; 2023 Bipasha Roy. All rights reserved.</p>
+            <p className="text-stone-50">&copy; 2023 Soham Malakar. All rights reserved.</p>
           </div>
           <p className='font-montserrat cursor-pointer text-stone-50'>Terms & Conditions</p>
         </div>
