@@ -8,7 +8,7 @@ import sopRoutes from "./routes/sop.js";
 
 // Import necessary modules
 import { AbortController } from 'abort-controller';
-import AbortControllerPolyfill from 'abort-controller/polyfill';
+
 
 // Use the polyfill to define AbortController if it's not available
 if (!AbortController) {
