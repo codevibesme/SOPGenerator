@@ -90,22 +90,22 @@ const Adduser = () => {
                 <form onSubmit={addUserdetails} className='min-w-full h-screen overflow-auto p-5 flex flex-col'>
                 <div className='w-full mb-4'>
                   <p className='text-lg h-fit w-fit font-medium mb-2'>Email</p>
-                  <input name="email_address" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                  <input required name="email_address" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                   <p className='text-lg h-fit w-fit font-medium mb-2'>Full Name</p>
-                  <input name="full_name" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                  <input required name="full_name" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                   <p className='text-lg h-fit w-fit font-medium mb-2'>Age</p>
-                  <input name="age" type="number" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                  <input required name="age" type="number" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4 flex flex-col'>
                   <p className='text-lg h-fit w-fit font-medium mb-2'>Highest Level of Education</p>
-                  <select name="degree" className='peer rounded-md h-12 px-4 w-2/5 border border-green-950' onChange={(e) =>onvalueChange(e)}>
+                  <select required name="degree" className='peer rounded-md h-12 px-4 w-2/5 border border-green-950' onChange={(e) =>onvalueChange(e)}>
                     <option defaultValue value={'choose'}>
                         choose
                     </option>
@@ -129,12 +129,12 @@ const Adduser = () => {
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>Institute where you completed your highest level of education</p>
-                    <input name="Institute_of_higher_level_education" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="Institute_of_higher_level_education" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>What did you study?</p>
-                    <input name="previous_study" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="previous_study" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
                 
                 <div className='w-full mb-4'>
@@ -146,67 +146,67 @@ const Adduser = () => {
                       3. Job duties <br />
                       Sample Answer: I worked as a Sales Manager at Effizient Immigration Inc from Jan 2022 till Feb 2023. In this role, I managed sales operations, reaching out to leads, lead the outreach program, ensured meeting monthly targets.
                     </p>
-                    <input name="work_experience" onChange={(e)=>onvalueChange(e)} rows={10} cols={20} className='peer text-lg rounded-md h-10 w-full px-4 border resize border-green-950 focus:outline-none '/>
+                    <input required name="work_experience" onChange={(e)=>onvalueChange(e)} rows={10} cols={20} className='peer text-lg rounded-md h-10 w-full px-4 border resize border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>What institute did you get admitted to in Canada?</p>
-                    <input name="canada_institute" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="canada_institute" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>What is your program of study in Canada?</p>
-                    <input name="program_of_study_in_Canada" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="program_of_study_in_Canada" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>Which country are you applying from?</p>
-                    <input name="user_country" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="user_country" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>What are your future goals?</p>
-                    <input name="future_goals" onChange={(e)=>onvalueChange(e)} rows={10} cols={20} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="future_goals" onChange={(e)=>onvalueChange(e)} rows={10} cols={20} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>English Scores - Listening</p>
-                    <input type="number" name="English_Scores_Listening" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required type="number" name="English_Scores_Listening" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>English Scores - Reading</p>
-                    <input type="number" name="English_Scores_Reading" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required type="number" name="English_Scores_Reading" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
                 
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>English Scores - Speaking</p>
-                    <input type="number" name="English_Scores_Speaking" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required type="number" name="English_Scores_Speaking" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
                 
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>English Scores - Writing</p>
-                    <input type="number" name="English_Scores_Writing" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required type="number" name="English_Scores_Writing" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
                 
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>Did you pay your first year tuition?</p>
-                    <input name="first_tution_fee" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="first_tution_fee" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>How much tuition fee did you pay?</p>
-                    <input name="first_tution_fee_paid" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="first_tution_fee_paid" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
                 
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>Did you do a GIC?</p>
-                    <input name="gic" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required name="gic" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='w-full mb-4'>
                     <p className='text-lg h-fit w-fit font-medium mb-2'>How much did you pay towards GIC?</p>
-                    <input type="number" name="gic_fee" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
+                    <input required type="number" name="gic_fee" onChange={(e)=>onvalueChange(e)} className='peer text-lg rounded-md h-10 w-full px-4 border border-green-950 focus:outline-none '/>
                 </div>
     
                 <div className='mt-4 flex justify-end'>
