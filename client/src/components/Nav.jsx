@@ -9,6 +9,7 @@ const Nav = () => {
             <Link to="/">
                 <img src='https://effizient.ca/assets/img/logo.png' alt='logo' height={300} width={180}  className='ml-10'/>
             </Link>
+           
             <ul className='flex-1 flex justify-center items-center max-lg:hidden gap-16 sm:justify-center'>
             {navLinks.map((item) => (
             <li key={item.name}>
@@ -22,6 +23,7 @@ const Nav = () => {
             </li>
           ))}
             </ul>
+         
         <div className='hidden max-lg:block'>
           <img src={hamburger} alt='hamburger icon' width={25} height={25} />
         </div>

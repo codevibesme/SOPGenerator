@@ -8,7 +8,7 @@
 
 @layer components {
   .max-container {
-    @apply w-full;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
