@@ -7,14 +7,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
 
-import { AbortController } from 'abort-controller';
-import AbortControllerPolyfill from 'abort-controller/polyfill.js';
-
-// Use the polyfill to define AbortController if it's not available
-if (!AbortController) {
-  AbortController = AbortControllerPolyfill;
-}
-
 // Now you can use AbortController in your code
 const controller = new AbortController();
 setTimeout(() => {
