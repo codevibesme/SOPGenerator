@@ -6,6 +6,15 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import sopRoutes from "./routes/sop.js";
 
+// Import necessary modules
+import { AbortController } from 'abort-controller';
+import AbortControllerPolyfill from 'abort-controller/polyfill';
+
+// Use the polyfill to define AbortController if it's not available
+if (!AbortController) {
+  global.AbortController = AbortControllerPolyfill;
+}
+
 dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
