@@ -63,8 +63,8 @@ const Adduser = () => {
     return(
         <>
         <Nav />
-        <section className='relative bg-form bg-cover bg-center w-full h-full p-20'>
-        <div className='rounded-2xl bg-white min-h-fit w-2/3 mx-auto shadow-lg shadow-gray-400/90 p-8'>
+        <section className='relative bg-form bg-cover bg-center w-full h-full md:p-20'>
+        <div className='rounded-2xl bg-white min-h-fit w-full md:w-2/3  mx-auto shadow-lg shadow-gray-400/90 md:p-8'>
             {greeting === "" && (
               <h1 className='text-4xl font-palanquin font-bold text-center mb-6'> Generate Your <span className='text-[#007bff]'>SOP</span> Now! 🍁</h1>
 

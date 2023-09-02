@@ -6,7 +6,7 @@ const Contact = () => {
     
       <div className='w-full h-full flex flex-col'>
         <h1 className='text-4xl text-center font-bold font-palanquin text-[#0E21A0] mb-12'>Contact Us</h1>
-        <form className='flex flex-col w-2/3 min-h-fit mx-auto p-10 bg-white rounded-xl shadow-lg shadow-blue-500'>
+        <form className='flex flex-col w-full md:w-2/3  min-h-fit mx-auto p-5 md:p-10 bg-white rounded-xl shadow-lg shadow-blue-500'>
           <div className='flex w-full min-h-fit mb-4'>
             <input placeholder='Your Name' className='text-lg rounded-lg h-10 w-1/2 me-10 border focus:outline-none px-6'/>
             <input placeholder='Email' className='text-lg rounded-lg h-10 w-1/2 border focus:outline-none px-6'/>
