@@ -26,7 +26,7 @@ const generateSOP = async (prompt) => {
         const completion = await openai.completions.create({
             model: "text-davinci-003",
             prompt,
-            max_tokens: 4097-1057,
+            max_tokens: 2048,
             temperature: 0,
         });
         const { text } = completion.choices[0];
