@@ -7,27 +7,21 @@ import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
 
-// Now you can use AbortController in your code
-const controller = new AbortController();
-setTimeout(() => {
-    controller.abort();
-}, 10000);
-
 dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 async function fetchImage(src) {
     const image = await axios
         .get(src, {
             responseType: 'arraybuffer'
         })
         
-    return image.data;
-}
-
-const logo = await fetchImage("https://effizient.ca/assets/img/logo.png");
+        return image.data;
+    }
+    
+    const logo = await fetchImage("https://effizient.ca/assets/img/logo.png");
 const generateSOP = async (prompt) => {
+    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
     try{
         const completion = await openai.completions.create({
             model: "text-davinci-003",
