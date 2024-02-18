@@ -11,56 +11,68 @@ dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function fetchImage(src) {
-    const image = await axios
-        .get(src, {
-            responseType: 'arraybuffer'
-        })
-        
-        return image.data;
-    }
-    
-    const logo = await fetchImage("https://effizient.ca/assets/img/logo.png");
-const generateSOP = async (prompt) => {
-    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
-    try{
-        const completion = await openai.completions.create({
-            model: "text-davinci-003",
-            prompt,
-            max_tokens: 2048,
-            temperature: 0,
-        });
-        const { text } = completion.choices[0];
-        return text;
-    }catch(err){
-        console.log({message: err.message});
-        return 'null';
-    }
+  const image = await axios.get(src, {
+    responseType: "arraybuffer",
+  });
+
+  return image.data;
 }
+
+const logo = await fetchImage("https://effizient.ca/assets/img/logo.png");
+const generateSOP = async (prompt) => {
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  try {
+    // const completion = await openai.completions.create({
+    //     model: "gpt-3.5-turbo",
+    //     prompt,
+    //     max_tokens: 2048,
+    //     temperature: 0,
+    // });
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a helpful Statement of purpose generator Consultant",
+        },
+        { role: "user", content: prompt },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
+    const text = completion.choices[0].message.content;
+    console.log(text);
+    return text;
+  } catch (err) {
+    console.log({ message: err.message });
+    return "null";
+  }
+};
 export const sendSop = async (req, res) => {
-    try{  
-        const {
-            full_name,
-            age,
-            degree,
-            email_address,
-            Institute_of_higher_level_education,
-            previous_study,
-            work_experience,
-            canada_institute,
-            program_of_study_in_Canada,
-            user_country,
-            future_goals,
-            English_Scores_Listening,
-            English_Scores_Reading,
-            English_Scores_Speaking,
-            English_Scores_writing,
-            first_tution_fee,
-            first_tution_fee_paid,
-            gic,
-            gic_fee
-        }  = await req.body;
-        
-        const prompt = `
+  try {
+    const {
+      full_name,
+      age,
+      degree,
+      email_address,
+      Institute_of_higher_level_education,
+      previous_study,
+      work_experience,
+      canada_institute,
+      program_of_study_in_Canada,
+      user_country,
+      future_goals,
+      English_Scores_Listening,
+      English_Scores_Reading,
+      English_Scores_Speaking,
+      English_Scores_writing,
+      first_tution_fee,
+      first_tution_fee_paid,
+      gic,
+      gic_fee,
+    } = await req.body;
+
+    const prompt = `
         Write me a  "Statement of Purpose" or a letter of intent for my application to study in Canada, addressing the Visa Officer, High Commission of Canada expressing my enthusiasm for studying in Canada, academic achievements, chosen program of study and future goals.
         Here are my details:
             Name: ${full_name}
@@ -123,61 +135,76 @@ export const sendSop = async (req, res) => {
 
         keep all the texts left aligned.
         `;
-        // Setting up Nodemailer to send emails from backend
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.email,
-                pass: process.env.pass,
-            },
-        });
+    // Setting up Nodemailer to send emails from backend
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.email,
+        pass: process.env.pass,
+      },
+    });
 
-        // generating prompt answer
-        const text = (await generateSOP(prompt)).toString();
-        
-        // generating pdf
-        const doc = new PDFDocument({size: 'A4'});
+    // generating prompt answer
+    const text = (await generateSOP(prompt)).toString();
 
-        doc.pipe(fs.createWriteStream(path.join(__dirname, `../public/assets/${full_name.split(' ').join('_')}_sop.pdf`)));
-        doc
-            .image(logo,500, 20, {scale:'0.25', align:'right'})
-            .font('Times-Roman')
-            .fontSize(12)
-            .text(text, {
-                align:'left'
-            });
-            
-        doc.save();
-        doc.end();
+    // generating pdf
+    const doc = new PDFDocument({ size: "A4" });
 
-        if(text!=='null'){
-            // Creating mail options by setting up reciever details and message
-            const mailOptions = {
-                from: process.env.email,
-                to: email_address,
-                subject: "SOP LETTER",
-                text: "Please find the attachment of your SOP letter below",
-                attachments: [
-                    {
-                        filename: `${full_name.split(' ').join('_')}_sop.pdf`,
-                        path: path.join(__dirname, `../public/assets/${full_name.split(' ').join('_')}_sop.pdf`),
-                        contentType: 'application/pdf',
-                    },
-                ],
-            }
+    doc.pipe(
+      fs.createWriteStream(
+        path.join(
+          __dirname,
+          `../public/assets/${full_name.split(" ").join("_")}_sop.pdf`
+        )
+      )
+    );
+    doc
+      .image(logo, 500, 20, { scale: "0.25", align: "right" })
+      .font("Times-Roman")
+      .fontSize(12)
+      .text(text, {
+        align: "left",
+      });
 
-            // sending the actual mail
-            transporter.sendMail(mailOptions, (error, info) => {
-                if(error) console.log(error);
-                // deleting the created file
-                fs.unlink(path.join(__dirname, `../public/assets/${full_name.split(' ').join('_')}_sop.pdf`), err => {
-                    if(err) console.log(err.message);
-                });
-            });
-            return res.status(201).json({message: "Sent"}); 
-        } else return res.status(400).json({message: "Couldn't generate SOP"});
-        
-    } catch(err){
-        res.status(400).json({message: err.message});
-    }
-}
+    doc.save();
+    doc.end();
+
+    if (text !== "null") {
+      // Creating mail options by setting up reciever details and message
+      const mailOptions = {
+        from: process.env.email,
+        to: email_address,
+        subject: "SOP LETTER",
+        text: "Please find the attachment of your SOP letter below",
+        attachments: [
+          {
+            filename: `${full_name.split(" ").join("_")}_sop.pdf`,
+            path: path.join(
+              __dirname,
+              `../public/assets/${full_name.split(" ").join("_")}_sop.pdf`
+            ),
+            contentType: "application/pdf",
+          },
+        ],
+      };
+
+      // sending the actual mail
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) console.log(error);
+        // deleting the created file
+        fs.unlink(
+          path.join(
+            __dirname,
+            `../public/assets/${full_name.split(" ").join("_")}_sop.pdf`
+          ),
+          (err) => {
+            if (err) console.log(err.message);
+          }
+        );
+      });
+      return res.status(201).json({ message: "Sent" });
+    } else return res.status(400).json({ message: "Couldn't generate SOP" });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};

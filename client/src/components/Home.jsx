@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import Hero from '../sections/Hero'
 import About from '../sections/About'
 import Contact from '../sections/Contact'
