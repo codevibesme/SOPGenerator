@@ -26,7 +26,7 @@ const defaultvalue = {
   gic_fee: "",
 };
 
-const URL = "http://localhost:8000";
+const URL = "https://sopgenerator.onrender.com";
 
 const Adduser = () => {
   const [isGen, setIsGen] = useState(false);
